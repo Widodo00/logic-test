@@ -1,26 +1,13 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.button-page {
+  @apply px-2 py-1 rounded-lg border border-slate-500 cursor-pointer disabled:cursor-no-drop disabled:border-none disabled:text-slate-500;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.card {
+  @apply p-4 rounded-lg border border-slate-500 flex flex-col gap-6;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.button-cart {
+  @apply px-2 py-1 rounded-lg bg-blue-600 cursor-pointer active:bg-blue-800 text-white font-medium disabled:bg-slate-400 disabled:active:bg-slate-400 disabled:cursor-no-drop;
 }
