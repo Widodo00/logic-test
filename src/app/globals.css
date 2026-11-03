@@ -1,13 +1,33 @@
 @import "tailwindcss";
 
+body {
+  @apply bg-slate-200;
+}
+
 .button-page {
-  @apply px-2 py-1 rounded-lg border border-slate-500 cursor-pointer disabled:cursor-no-drop disabled:border-none disabled:text-slate-500;
+  @apply px-2 py-1 rounded-md border border-slate-500 cursor-pointer bg-white hover:bg-blue-100 disabled:cursor-no-drop disabled:border-none disabled:text-slate-500 disabled:hover:bg-white;
 }
 
 .card {
-  @apply p-4 rounded-lg border border-slate-500 flex flex-col gap-6;
+  @apply p-4 rounded-md border border-slate-400 flex flex-col gap-6 bg-white shadow-md text-xs hover:bg-blue-100;
 }
 
 .button-cart {
-  @apply px-2 py-1 rounded-lg bg-blue-600 cursor-pointer active:bg-blue-800 text-white font-medium disabled:bg-slate-400 disabled:active:bg-slate-400 disabled:cursor-no-drop;
+  @apply px-4 py-3 rounded-sm text-xs bg-blue-500 cursor-pointer active:bg-blue-800 text-white font-medium disabled:bg-slate-400 disabled:active:bg-slate-400 disabled:cursor-no-drop;
+}
+
+.button-home {
+  @apply p-4 rounded-md border border-slate-400 bg-white shadow-md cursor-pointer transition-all hover:bg-blue-200 text-slate-800;
+}
+
+.box {
+  @apply bg-white p-5 rounded-md border border-slate-400 flex flex-col gap-4;
+}
+
+.input-custom {
+  @apply bg-white text-xs p-3 border border-slate-300 rounded-md flex-1;
+}
+
+.content-tab {
+  @apply flex flex-col gap-2;
 }

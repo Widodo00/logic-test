@@ -1,19 +1,7 @@
 "use client";
 
-import Image from "next/image";
-
-type Product = {
-  id: string;
-  name: string;
-  price: number;
-  imageUrl: string;
-  available: boolean;
-};
-
-type ProductCardProps = {
-  product: Product;
-  onAdd: (productId: string) => void;
-};
+import ProductCard from "@/components/productCard";
+import { Product } from "../types/general";
 
 const data: Product[] = [
   { id: "1", name: "Apple", imageUrl: "https://picsum.photos/200", price: 35000, available: true },
@@ -39,35 +27,21 @@ const data: Product[] = [
 ];
 
 export default function Challenge4() {
-  function currency(value: number): string {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-      maximumFractionDigits: 0,
-    }).format(value);
-  }
-
   function onAdd(id: string) {
     console.log(`Add cart id ${id}`);
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-      {data.map((item: Product) => (
-        <article key={item.id} className="card">
-          <div className="flex gap-4">
-            <Image src={item.imageUrl} alt={item.name} width={200} height={200} />
-            <div className="flex flex-col gap-4">
-              <h2 className="font-semibold text-lg">{item.name}</h2>
-              <p>{currency(item.price)}</p>
-            </div>
-          </div>
-
-          <button className="button-cart" disabled={!item.available} onClick={() => onAdd(item.id)}>
-            {item.available ? "Add to cart" : "Out of stock"}
-          </button>
-        </article>
-      ))}
-    </div>
+    <>
+      <div className="flex flex-col gap-1">
+        <h1 className="font-bold text-4xl">Challenge 4</h1>
+        <p className="text-sm text-slate-500">Build a Product Card Component</p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        {data.map((item: Product) => (
+          <ProductCard product={item} onAdd={onAdd} key={item.id} />
+        ))}
+      </div>
+    </>
   );
 }
